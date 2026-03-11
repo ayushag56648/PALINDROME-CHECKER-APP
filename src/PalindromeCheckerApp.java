@@ -1,27 +1,28 @@
-public class PalindromeCheckerApp {
+class PalindromeChecker {
 
-    // Recursive function
-    public static boolean isPalindrome(String word, int start, int end) {
+    // Method to check palindrome
+    public boolean checkPalindrome(String word) {
 
-        // Base condition
-        if(start >= end) {
-            return true;
+        String reversed = "";
+
+        for(int i = word.length() - 1; i >= 0; i--) {
+            reversed = reversed + word.charAt(i);
         }
 
-        // Check first and last characters
-        if(word.charAt(start) != word.charAt(end)) {
-            return false;
-        }
-
-        // Recursive call
-        return isPalindrome(word, start + 1, end - 1);
+        return word.equals(reversed);
     }
+}
+
+
+public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
         String word = "madam";
 
-        boolean result = isPalindrome(word, 0, word.length() - 1);
+        PalindromeChecker checker = new PalindromeChecker();
+
+        boolean result = checker.checkPalindrome(word);
 
         if(result) {
             System.out.println(word + " is a Palindrome");
