@@ -2,18 +2,25 @@ public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String original = "madam";
-        String reversed = "";
+        String word = "madam";
+        char[] letters = word.toCharArray();
 
-        for (int i = original.length() - 1; i >= 0; i--) {
-            reversed = reversed + original.charAt(i);
+        boolean isPalindrome = true;
+
+        for(int i = 0; i < letters.length / 2; i++) {
+
+            if(letters[i] != letters[letters.length - 1 - i]) {
+                isPalindrome = false;
+                break;
+            }
+
         }
 
-        if (original.equals(reversed)) {
-            System.out.println(original + " is a palindrome");
+        if(isPalindrome) {
+            System.out.println(word + " is a Palindrome");
         } else {
-            System.out.println(original + " is not a palindrome");
+            System.out.println(word + " is not a Palindrome");
         }
 
     }
-}git
+}
